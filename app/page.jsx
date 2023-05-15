@@ -26,11 +26,6 @@ export default function Home() {
 
   const targetDate = new Date("2023-05-21T07:00:00").getTime();
 
-  const urlBase =
-    process.env.NODE_ENV == "development"
-      ? "http://localhost:3000"
-      : process.env.PUBLIC_URL;
-
   const handleSubmit = async (e, people) => {
     setError(false);
     setSubmmiting(false);
@@ -87,8 +82,8 @@ export default function Home() {
           const secret = "mathePouPsifizeis";
           const token = jwt(urlElements, secret);
 
-          const urlWithBase = `${urlBase}/map?info=${token}`;
-          setURL(urlWithBase);
+          const urlWithToken = `/map?info=${token}`;
+          setURL(urlWithToken);
         }
 
         // Process the result as needed
