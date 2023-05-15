@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
 import { removeAccents } from "@/app/utils/helpers";
+import { validateGreekText } from "@/app/utils/validations";
+
 
 export async function POST(req) {
   // Handle the POST request here
   const body = await req.json();
   const { firstName, lastName, fatherName, motherName, birthYear } = body;
+
+  let birthYearValue = birthYear
+  if (typeof birthYear == 'number'){
+    birthYearValue = birthYear.toString();
+  }
 
   // Check if any inputs are empty
   if (
@@ -12,10 +19,31 @@ export async function POST(req) {
     lastName.trim() === "" ||
     fatherName.trim() === "" ||
     motherName.trim() === "" ||
-    birthYear.trim() === ""
+    birthYearValue.trim() === ""
   ) {
     return NextResponse.json(
       { message: "Empty input fields", data: [] },
+      { status: 400 }
+    );
+  }
+
+  // Validate the Greek text inputs
+  if (
+    !validateGreekText(firstName) ||
+    !validateGreekText(lastName) ||
+    !validateGreekText(fatherName) ||
+    !validateGreekText(motherName)
+  ) {
+    return NextResponse.json(
+      { message: "Invalid input fields", data: [] },
+      { status: 400 }
+    );
+  }
+
+  // Validate the birth year input
+  if (isNaN(birthYear)) {
+    return NextResponse.json(
+      { message: "Birth year must be a number", data: [] },
       { status: 400 }
     );
   }
@@ -25,7 +53,7 @@ export async function POST(req) {
     lastName: removeAccents(lastName),
     nameOfFather: removeAccents(fatherName),
     nameOfMother: removeAccents(motherName),
-    birthYear: birthYear,
+    birthYear: birthYearValue,
   };
 
   const requestHeaders = new Headers();

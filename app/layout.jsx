@@ -12,7 +12,7 @@ export const metadata = {
     images:
       "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     title: "Μάθε που ψηφίζεις map",
-    description: "The React Framework for the Web",
+    description: "Δημιούργησε το δικό σου χάρτη εκλογικών κέντρων για εσένα και όσους ακόμα θέλεις!",
     siteName: "Μάθε που ψηφίζεις map",
     url: "https://mathe-pou-psifizeis.vercel.app/",
     type: "website",

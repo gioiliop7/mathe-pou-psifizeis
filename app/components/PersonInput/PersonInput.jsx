@@ -31,7 +31,7 @@ const PersonInput = ({ data, setPersonData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //Check if the form is already submitting before executing the logic
+    // Check if the form is already submitting before executing the logic
     if (isSubmitting) {
       return;
     }
@@ -39,21 +39,48 @@ const PersonInput = ({ data, setPersonData }) => {
     setIsSubmitting(true);
     // Validate form fields
     const validationErrors = {};
-    if (formData.firstName.trim() === "") {
-      validationErrors.firstName = "Το πεδίο απαιτείται.";
+
+    // Validate Greek text inputs
+    const greekTextPattern = /^[\u0370-\u03FF\s]+$/;
+    if (
+      formData.firstName.trim() === "" ||
+      !greekTextPattern.test(formData.firstName)
+    ) {
+      validationErrors.firstName =
+        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
     }
-    if (formData.lastName.trim() === "") {
-      validationErrors.lastName = "Το πεδίο απαιτείται.";
+    if (
+      formData.lastName.trim() === "" ||
+      !greekTextPattern.test(formData.lastName)
+    ) {
+      validationErrors.lastName =
+        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
     }
-    if (formData.fatherName.trim() === "") {
-      validationErrors.fatherName = "Το πεδίο απαιτείται.";
+    if (
+      formData.fatherName.trim() === "" ||
+      !greekTextPattern.test(formData.fatherName)
+    ) {
+      validationErrors.fatherName =
+        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
     }
-    if (formData.motherName.trim() === "") {
-      validationErrors.motherName = "Το πεδίο απαιτείται.";
+    if (
+      formData.motherName.trim() === "" ||
+      !greekTextPattern.test(formData.motherName)
+    ) {
+      validationErrors.motherName =
+        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
     }
-    if (formData.birthYear.trim() === "") {
-      validationErrors.birthYear = "Το πεδίο απαιτείται.";
+
+    // Validate birth year as a number
+    const birthYearPattern = /^\d+$/;
+    if (
+      formData.birthYear.trim() === "" ||
+      !birthYearPattern.test(formData.birthYear)
+    ) {
+      validationErrors.birthYear =
+        "Το πεδίο απαιτείται και πρέπει να περιέχει μόνο αριθμούς.";
     }
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setIsSubmitting(false);
