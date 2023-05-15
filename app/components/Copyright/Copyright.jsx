@@ -12,7 +12,7 @@ const Copyright = () => {
         &copy; {currentYear} All rights reserved.
       </p>
       <p className="mt-2">
-        Powered by{" "}
+        Data from{" "}
         <Link href="https://www.gov.gr">
           <Image
             src={"https://www.gov.gr/gov_gr_logo.svg"}

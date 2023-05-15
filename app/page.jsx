@@ -78,7 +78,6 @@ export default function Home() {
               urlElements.push(urlObject);
             }
           });
-          console.log(urlElements);
           const secret = "mathePouPsifizeis";
           const token = jwt(urlElements, secret);
 
@@ -93,7 +92,6 @@ export default function Home() {
     }
     if (people.length == 0) {
       const ticks = document.getElementsByClassName("tick");
-      console.log(ticks.length);
       if (ticks.length == 0) {
         setErrorMessage("Δεν υπάρχουν πρόσωπα για αναζήτηση");
       }

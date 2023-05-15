@@ -79,7 +79,7 @@ const PersonInput = ({ data, setPersonData }) => {
       )}
       <div className="mb-4">
         <label htmlFor="firstName" className="block mb-1">
-          Ονομα:
+          Όνομα:
         </label>
         <input
           type="text"
@@ -98,7 +98,7 @@ const PersonInput = ({ data, setPersonData }) => {
       </div>
       <div className="mb-4">
         <label htmlFor="lastName" className="block mb-1">
-          Επωνυμο:
+          Επώνυμο:
         </label>
         <input
           type="text"
@@ -117,7 +117,7 @@ const PersonInput = ({ data, setPersonData }) => {
       </div>
       <div className="mb-4">
         <label htmlFor="fatherName" className="block mb-1">
-          Πατρωνυμο:
+          Πατρώνυμο:
         </label>
         <input
           type="text"
@@ -136,7 +136,7 @@ const PersonInput = ({ data, setPersonData }) => {
       </div>
       <div className="mb-4">
         <label htmlFor="motherName" className="block mb-1">
-          Μητρωνυμο:
+          Μητρώνυμο:
         </label>
         <input
           type="text"
