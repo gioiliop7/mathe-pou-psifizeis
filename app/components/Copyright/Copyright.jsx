@@ -11,6 +11,9 @@ const Copyright = () => {
       <p className="text-xs">
         &copy; {currentYear} All rights reserved.
       </p>
+      <p className="text-xs">
+        Η εφαρμογή δεν αποθηκεύει κανένα προσωπικό δεδομένο των χρηστών και τα αποτελέσματα επεξεργάζονται μέσω διασύνδεσης με το API του υπουργείου
+      </p>
       <p className="mt-2">
         Data from{" "}
         <Link href="https://www.gov.gr">
