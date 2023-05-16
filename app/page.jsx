@@ -45,11 +45,21 @@ export default function Home() {
         const result = await response.json();
         if (response.status == 200) {
           const data = result.data[0];
-          if (!people.some((person) => person.id === data.id)) {
-            people.push(data);
+          if (data.latitude && data.longitude) {
+            if (!people.some((person) => person.id === data.id)) {
+              people.push(data);
+            }
+            setPeople(people);
+            setErrorMessage("");
+            setError(false);
+          } else {
+            setError(true);
+            setErrorMessage(
+              "Δυστυχώς τα στοιχεία που δημοσίευσες δεν παρέχουν γεωγραφικές πληροφορίες"
+            );
           }
-          setPeople(people);
         }
+        console.log(people);
         if (people.length > 0) {
           const urlElements = [];
 
