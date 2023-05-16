@@ -59,7 +59,6 @@ export default function Home() {
             );
           }
         }
-        console.log(people);
         if (people.length > 0) {
           const urlElements = [];
 

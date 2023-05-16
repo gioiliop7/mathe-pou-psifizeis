@@ -29,8 +29,6 @@ const Countdown = ({ targetDate }) => {
     return () => clearInterval(interval);
   }, [targetDate]);
 
-  console.log(countdownExists);
-
   return (
     <>
       {countdownExists && (
