@@ -43,11 +43,12 @@ const PersonInput = ({ data, setPersonData }) => {
     // Validate Greek text inputs
     const greekTextPattern = /^[\u0370-\u03FF\s]+$/;
     if (
+      formData.firstName.trim().length < 2 ||
       formData.firstName.trim() === "" ||
       !greekTextPattern.test(formData.firstName)
     ) {
       validationErrors.firstName =
-        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
+        "Το πεδίο απαιτείται και πρέπει να περιέχει τουλάχιστον δύο χαρακτήρες ή να μην περιέχει μη έγκυρους χαρακτήρες.";
     }
     if (
       formData.lastName.trim() === "" ||
@@ -57,24 +58,26 @@ const PersonInput = ({ data, setPersonData }) => {
         "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
     }
     if (
+      formData.fatherName.trim().length < 2 ||
       formData.fatherName.trim() === "" ||
       !greekTextPattern.test(formData.fatherName)
     ) {
       validationErrors.fatherName =
-        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
+        "Το πεδίο απαιτείται και πρέπει να περιέχει τουλάχιστον δύο χαρακτήρες ή να μην περιέχει μη έγκυρους χαρακτήρες.";
     }
     if (
+      formData.motherName.trim().length < 2 ||
       formData.motherName.trim() === "" ||
       !greekTextPattern.test(formData.motherName)
     ) {
       validationErrors.motherName =
-        "Το πεδίο απαιτείται ή περιέχει μη έγκυρους χαρακτήρες.";
+        "Το πεδίο απαιτείται και πρέπει να περιέχει τουλάχιστον δύο χαρακτήρες ή να μην περιέχει μη έγκυρους χαρακτήρες.";
     }
 
     const currentYear = new Date().getFullYear();
     const birthYearPattern = /^\d{4}$/;
     const birthYear = parseInt(formData.birthYear);
-    
+
     if (
       formData.birthYear.trim() === "" ||
       !birthYearPattern.test(formData.birthYear) ||
