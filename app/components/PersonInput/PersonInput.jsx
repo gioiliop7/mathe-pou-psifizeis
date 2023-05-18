@@ -91,6 +91,7 @@ const PersonInput = ({ data, setPersonData }) => {
   };
 
   return (
+    <>
     <form
       className="max-w-5xl flex gap-4 flex-wrap mx-auto justify-center bg-blue-100 rounded-xl p-6 relative border border-cyan-600"
       onSubmit={handleSubmit}
@@ -203,14 +204,16 @@ const PersonInput = ({ data, setPersonData }) => {
         <>
           <button
             type="submit"
-            className="bg-sky-500 hover:bg-sky-600 transition-all duration-200 text-white font-semibold py-2 px-4 rounded w-full max-w-[600px]"
+            className="bg-sky-500 hover:bg-sky-600 transition-all duration-200 text-white font-semibold py-2 px-4 rounded w-full max-w-[500px]"
           >
             Προσθήκη στη λίστα
           </button>
         </>
       )}
     </form>
+    </>
   );
+  
 };
 
 export default PersonInput;
