@@ -4,10 +4,11 @@ import PersonInput from "./components/PersonInput/PersonInput";
 import SocialLinks from "./components/SocialLinks/SocialLinks";
 import Header from "./components/Header/Header";
 import Countdown from "./components/Countdown/Countdown";
+import useMediaQuery from "./hooks/useMediaQuery";
 
 import Plus from "./assets/plus.svg";
-import map from "./assets/map.svg"
-import Ballot from "./assets/ballot-box.png"
+import map from "./assets/map.svg";
+import Ballot from "./assets/ballot-box.png";
 
 import Image from "next/image";
 
@@ -26,6 +27,7 @@ export default function Home() {
     "Παρουσιάστηκε κάποιο σφάλμα με τα στοιχεία,παρακαλώ προσπαθήστε ξανά αργότερα"
   );
   const [canSubmit, setCanSubmit] = useState(true);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const targetDate = new Date("2023-05-21T19:00:00").getTime();
 
@@ -120,9 +122,20 @@ export default function Home() {
   return (
     <>
       <main className="flex min-h-screen flex-col align-items-center h-100 gap-6 py-12 bg-gradient-to-r from-cyan-200 to-blue-200 relative">
-        <Image className="max-w-[250px] absolute right-10 bottom-10" src={map} alt="map"/>
-        <Image className="max-w-[250px] absolute left-10 bottom-10" src={Ballot} alt="ballot"/>
-
+        {!isMobile && (
+          <>
+            <Image
+              className="max-w-[250px] absolute right-10 bottom-10"
+              src={map}
+              alt="map"
+            />
+            <Image
+              className="max-w-[250px] absolute left-10 bottom-10"
+              src={Ballot}
+              alt="ballot"
+            />
+          </>
+        )}
         <Header />
         <Countdown targetDate={targetDate} />
         {[...Array(numInputs)].map((_, index) => {
