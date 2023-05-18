@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import logo from "../../assets/ekloges.svg";
 
 const Countdown = ({ targetDate }) => {
   const [countdown, setCountdown] = useState(null);
@@ -32,13 +34,17 @@ const Countdown = ({ targetDate }) => {
   return (
     <>
       {countdownExists && (
-        <p className="text-base text-blue-700 text-center font-bold">
-          Επόμενη εκλογική αναμέτρηση
-        </p>
+        <>
+          <Image className="max-w-[250px] mx-auto" src={logo} alt="logo" />
+          {/* <p className="text-base text-blue-700 text-center font-bold">
+            Επόμενη εκλογική αναμέτρηση
+          </p> */}
+
+          <div className="bg-blue-300 w-full mx-auto flex justify-center max-w-[300px] py-4 text-white text-3xl font-bold rounded-xl text-center">
+            {countdown}
+          </div>
+        </>
       )}
-      <div className="bg-blue-300 w-full mx-auto flex justify-center max-w-[300px] py-4 text-white text-3xl font-bold rounded-xl text-center">
-        {countdown}
-      </div>
     </>
   );
 };

@@ -16,3 +16,10 @@ export function removeAccents(str) {
     return greekLetters[match];
   });
 }
+
+export function createNavigationLink(endLat, endLng) {
+  let link = "https://www.google.com/maps/dir/?api=1";
+  link += "&destination=" + endLat + "," + endLng;
+
+  return link;
+}

@@ -6,6 +6,9 @@ import Header from "./components/Header/Header";
 import Countdown from "./components/Countdown/Countdown";
 
 import Plus from "./assets/plus.svg";
+import map from "./assets/map.svg"
+import Ballot from "./assets/ballot-box.png"
+
 import Image from "next/image";
 
 import { useState } from "react";
@@ -24,7 +27,7 @@ export default function Home() {
   );
   const [canSubmit, setCanSubmit] = useState(true);
 
-  const targetDate = new Date("2023-05-21T07:00:00").getTime();
+  const targetDate = new Date("2023-05-21T19:00:00").getTime();
 
   const handleSubmit = async (e, people) => {
     setError(false);
@@ -116,7 +119,10 @@ export default function Home() {
 
   return (
     <>
-      <main className="flex min-h-screen flex-col align-items-center h-100 gap-6 py-12 bg-gradient-to-r from-cyan-200 to-blue-200">
+      <main className="flex min-h-screen flex-col align-items-center h-100 gap-6 py-12 bg-gradient-to-r from-cyan-200 to-blue-200 relative">
+        <Image className="max-w-[250px] absolute right-10 bottom-10" src={map} alt="map"/>
+        <Image className="max-w-[250px] absolute left-10 bottom-10" src={Ballot} alt="ballot"/>
+
         <Header />
         <Countdown targetDate={targetDate} />
         {[...Array(numInputs)].map((_, index) => {
@@ -132,7 +138,7 @@ export default function Home() {
           <>
             <button
               id="addInput"
-              className="max-w-[60px] w-full mx-auto"
+              className="max-w-[40px] w-full mx-auto"
               onClick={addInput}
             >
               <Image src={Plus} alt="plus" />

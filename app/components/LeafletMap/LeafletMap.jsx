@@ -9,6 +9,8 @@ import {
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
+import { createNavigationLink } from "@/app/utils/helpers";
+
 function LeafletMap({ points }) {
   const [map, setMap] = useState(null);
   useEffect(() => {
@@ -46,6 +48,7 @@ function LeafletMap({ points }) {
         pollingIds: [point.pollingId],
         dhmots: [point.dhmot],
         address: point.address,
+        url: createNavigationLink(point.lat, point.long),
       });
     }
   });
@@ -116,6 +119,11 @@ function LeafletMap({ points }) {
                   )} - ${combinedPoint.dhmots.join(", ")}`}
                 </div>
                 <div className="m-2 text-center">{combinedPoint.address}</div>
+                <div className="m-2 text-center">
+                  <a target="_blank" href={combinedPoint.url}>
+                    Πλοήγηση
+                  </a>
+                </div>
               </div>
             </Popup>
           </Marker>
