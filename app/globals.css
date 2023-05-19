@@ -22,6 +22,9 @@
     background:#6b6e77!important;
     border:none!important;
   }
+  form input{
+    color:#6b6e77;
+  }
 }
 
 html,
