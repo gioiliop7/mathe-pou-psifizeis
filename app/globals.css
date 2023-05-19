@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -15,10 +9,18 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  main{
+    color:#fff!important;
+    background:#252424!important;
+  }
+  footer > div{
+    background:#6b6e77!important;
+    color:#fff!important;
+    border:none!important;
+  }
+  form{
+    background:#6b6e77!important;
+    border:none!important;
   }
 }
 
