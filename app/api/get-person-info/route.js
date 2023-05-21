@@ -69,7 +69,9 @@ export async function POST(req) {
       "https://mpp.ypes.gov.gr/back/api/index",
       requestOptions
     );
+    console.log
     const result = await response.json();
+    console.log(result);
     if (Object.keys(result).length === 0) {
       return NextResponse.json(
         { message: "Data not found", data: result },
@@ -84,10 +86,6 @@ export async function POST(req) {
   } catch (error) {
     console.log("error", error);
     // Continue processing or return a success response
-    return NextResponse.json(
-      { message: "Something bad happened", data: [], error: error },
-      { status: 502 }
-    );
   }
 
   // Continue processing or return a success response
