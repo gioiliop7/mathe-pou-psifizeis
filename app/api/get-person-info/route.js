@@ -2,14 +2,13 @@ import { NextResponse } from "next/server";
 import { removeAccents } from "@/app/utils/helpers";
 import { validateGreekText } from "@/app/utils/validations";
 
-
 export async function POST(req) {
   // Handle the POST request here
   const body = await req.json();
   const { firstName, lastName, fatherName, motherName, birthYear } = body;
 
-  let birthYearValue = birthYear
-  if (typeof birthYear == 'number'){
+  let birthYearValue = birthYear;
+  if (typeof birthYear == "number") {
     birthYearValue = birthYear.toString();
   }
 
@@ -84,6 +83,11 @@ export async function POST(req) {
     }
   } catch (error) {
     console.log("error", error);
+    // Continue processing or return a success response
+    return NextResponse.json(
+      { message: "Something bad happened", data: [], error: error },
+      { status: 502 }
+    );
   }
 
   // Continue processing or return a success response
