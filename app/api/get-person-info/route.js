@@ -69,7 +69,6 @@ export async function POST(req) {
       "https://mpp.ypes.gov.gr/back/api/index",
       requestOptions
     );
-    return response;
     const result = await response.json();
     if (Object.keys(result).length === 0) {
       return NextResponse.json(
