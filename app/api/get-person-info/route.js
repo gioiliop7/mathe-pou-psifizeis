@@ -55,8 +55,15 @@ export async function POST(req) {
     birthYear: birthYearValue,
   };
 
-  const requestHeaders = new Headers();
-  requestHeaders.append("Content-Type", "application/json");
+  const requestHeaders = {
+    "Content-Type": "application/json",
+    Referer: "https://mpp.ypes.gov.gr/",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+  };
+
+  fetch("https://mpp.ypes.gov.gr/back/api/index", {
+    headers: {},
+  });
 
   const requestOptions = {
     method: "POST",
@@ -83,7 +90,6 @@ export async function POST(req) {
     }
   } catch (error) {
     console.log("error", error);
-    // Continue processing or return a success response
   }
 
   // Continue processing or return a success response
