@@ -69,26 +69,6 @@ export async function POST(req) {
     origin: "Origin",
   };
 
-  // fetch("https://mpp.ypes.gov.gr/back/api/index", {
-  //   headers: {
-  //     accept: "application/json, text/plain, */*",
-  //     "accept-language": "el-GR,el;q=0.9,en;q=0.8",
-  //     "cache-control": "no-cache",
-  //     "content-type": "application/json",
-  //     pragma: "no-cache",
-  //     "sec-ch-ua":
-  //       '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
-  //     "sec-ch-ua-mobile": "?0",
-  //     "sec-ch-ua-platform": '"Windows"',
-  //   },
-  //   referrer: "https://mpp.ypes.gov.gr/",
-  //   referrerPolicy: "strict-origin-when-cross-origin",
-  //   body: '{"eeaCode":"","name":"ΓΕΩΡΓΙΟΣ","lastName":"ΗΛΙΟΠΟΥΛΟΣ","nameOfFather":"ΝΕΚΤ","nameOfMother":"ΠΑΝ","birthYear":"1997"}',
-  //   method: "POST",
-  //   mode: "cors",
-  //   credentials: "include",
-  // });
-
   const requestOptions = {
     method: "POST",
     headers: requestHeaders,
@@ -96,10 +76,25 @@ export async function POST(req) {
   };
 
   try {
-    const response = await fetch(
-      "https://mpp.ypes.gov.gr/back/api/index",
-      requestOptions
-    );
+    const response = await fetch("https://mpp.ypes.gov.gr/back/api/index", {
+      headers: {
+        accept: "application/json, text/plain, */*",
+        "accept-language": "el-GR,el;q=0.9,en;q=0.8",
+        "cache-control": "no-cache",
+        "content-type": "application/json",
+        pragma: "no-cache",
+        "sec-ch-ua":
+          '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+      },
+      referrer: "https://mpp.ypes.gov.gr/",
+      referrerPolicy: "strict-origin-when-cross-origin",
+      body: '{"eeaCode":"","name":"ΓΕΩΡΓΙΟΣ","lastName":"ΗΛΙΟΠΟΥΛΟΣ","nameOfFather":"ΝΕΚΤ","nameOfMother":"ΠΑΝ","birthYear":"1997"}',
+      method: "POST",
+      mode: "cors",
+      credentials: "include",
+    });
     const result = await response.json();
     if (Object.keys(result).length === 0) {
       return NextResponse.json(
