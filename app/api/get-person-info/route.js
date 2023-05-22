@@ -56,12 +56,17 @@ export async function POST(req) {
   };
 
   const requestHeaders = {
-    "Content-Type": "application/json",
+    authority: "mpp.ypes.gov.gr",
     accept: "application/json, text/plain, */*",
     "accept-language": "el-GR,el;q=0.9,en;q=0.8",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
     origin: "https://mpp.ypes.gov.gr",
+    pragma: "no-cache",
+    referer: "https://mpp.ypes.gov.gr/",
+    "user-agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
   };
-
   const requestOptions = {
     method: "POST",
     headers: requestHeaders,
@@ -73,7 +78,7 @@ export async function POST(req) {
       "https://mpp.ypes.gov.gr/back/api/index",
       requestOptions
     );
-    
+
     const result = await response.json();
     if (Object.keys(result).length === 0) {
       return NextResponse.json(
