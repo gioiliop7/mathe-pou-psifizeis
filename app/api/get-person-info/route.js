@@ -56,10 +56,25 @@ export async function POST(req) {
   };
 
   const requestHeaders = {
-    "Content-Type": "application/json",
+    authority: "mpp.ypes.gov.gr",
     accept: "application/json, text/plain, */*",
     "accept-language": "el-GR,el;q=0.9,en;q=0.8",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    cookie:
+      "_ga=GA1.1.1410460489.1684661436; _ga_VSRGZ6DPPC=GS1.1.1684677278.3.0.1684677297.0.0.0",
     origin: "https://mpp.ypes.gov.gr",
+    pragma: "no-cache",
+    referer: "https://mpp.ypes.gov.gr/",
+    "sec-ch-ua":
+      '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "user-agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
   };
 
   const requestOptions = {
@@ -69,10 +84,11 @@ export async function POST(req) {
   };
 
   try {
-    const response = await fetch(
-      "https://mpp.ypes.gov.gr/back/api/index",
-      requestOptions
-    );
+    // const response = await fetch(
+    //   "https://mpp.ypes.gov.gr/back/api/index",
+    //   requestOptions
+    // );
+
     const result = await response.json();
     if (Object.keys(result).length === 0) {
       return NextResponse.json(
