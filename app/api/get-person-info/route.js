@@ -62,6 +62,11 @@ export async function POST(req) {
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
+    authority: "mpp.ypes.gov.gr",
+    method: "POST",
+    path: "/back/api/index",
+    scheme: "https",
+    origin: "Origin",
   };
 
   // fetch("https://mpp.ypes.gov.gr/back/api/index", {
@@ -88,8 +93,6 @@ export async function POST(req) {
     method: "POST",
     headers: requestHeaders,
     body: JSON.stringify(ypesBody),
-    mode: "cors",
-    credentials: "include",
   };
 
   try {
