@@ -59,11 +59,13 @@ export async function POST(req) {
     authority: "mpp.ypes.gov.gr",
     accept: "application/json, text/plain, */*",
     "accept-language": "el-GR,el;q=0.9,en;q=0.8",
+    "cache-control": "no-cache",
     "content-type": "application/json",
     origin: "https://mpp.ypes.gov.gr",
+    pragma: "no-cache",
     referer: "https://mpp.ypes.gov.gr/",
   };
-
+  
   const requestOptions = {
     method: "POST",
     headers: requestHeaders,
