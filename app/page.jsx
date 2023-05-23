@@ -17,17 +17,6 @@ import jwt from "jwt-encode";
 import Copyright from "./components/Copyright/Copyright";
 
 export default function Home() {
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="max-w-md p-4 bg-white shadow-md text-center">
-        <h1 className="text-2xl font-bold mb-4">Maintenance Mode</h1>
-        <p className="text-gray-700">
-          Είμαστε σε διαδικασία συντήρησης και επίλυσης προβλημάτων της σελίδας.
-          Παρακαλώ προσπαθήστε αργότερα.
-        </p>
-      </div>
-    </div>
-  );
   const [personData, setPersonData] = useState([]);
   const [numInputs, setNumInputs] = useState(1);
   const [people, setPeople] = useState([]);
